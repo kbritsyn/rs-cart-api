@@ -6,7 +6,6 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
@@ -18,7 +17,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "docker:build": "docker build -t rs-cart-api .",
+    "docker:run": "docker run --rm -p 4000:4000 rs-cart-api"
   },
   "dependencies": {
     "@nestjs/common": "^7.5.1",
@@ -28,6 +29,8 @@
     "@nestjs/passport": "^7.1.0",
     "@nestjs/platform-express": "^7.5.1",
     "helmet": "^4.2.0",
+    "i": "^0.3.6",
+    "npm": "^6.14.9",
     "passport": "^0.4.1",
     "passport-http": "^0.3.0",
     "passport-jwt": "^4.0.0",
@@ -42,7 +45,7 @@
     "@nestjs/testing": "^7.5.1",
     "@types/express": "^4.17.3",
     "@types/jest": "26.0.10",
-    "@types/node": "^13.13.30",
+    "@types/node": "^13.13.34",
     "@types/passport-jwt": "^3.0.3",
     "@types/passport-local": "^1.0.33",
     "@types/supertest": "^2.0.8",
